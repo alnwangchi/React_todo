@@ -51,3 +51,21 @@ input {
 .remove:hover {
   background-color: hsl(0, 56%, 51%);
 }
+
+.input_time {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.input_time input {
+  width: 50%;
+  max-width: 160px;
+}
+.input_time input:nth-of-type(1) {
+  margin-right: 32px;
+}
+.input_time span {
+  margin-right: 8px;
+}

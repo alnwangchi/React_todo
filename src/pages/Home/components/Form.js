@@ -37,18 +37,27 @@ const Form = ({addData, submitState}) => {
     });
   };
 
+  const enterAdd = (e) => {
+    if (e.keyCode === 13) {
+      console.log('Enter!');
+      addItem()
+    }
+  }
+
   return (
     <div>
       <h1>Allen TODO</h1>
       <p>事項:</p>
-      <input type="text" value={note} onChange={noteTyping}
-      />
-      <p>日期</p>
-      <input type="date" value={date} onChange={dateTyping} />
-      <p>時間:</p>
-      <input type="time" value={time} onChange={timeTyping} />
+      <input type="text" value={note} onChange={noteTyping} onKeyDown={(e) => enterAdd(e) }/>
+      <div className="input_time">
+        <span>日期</span>
+        <input type="date" value={date} onChange={dateTyping} />
+        <span>時間:</span>
+        <input type="time" value={time} onChange={timeTyping} />
+      </div>
 
-      <button className="add" onClick={addItem}>
+
+      <button className="add" onClick={addItem} onKeyPress={() => console.log("Hi")}>
         新增
       </button>
     </div>

@@ -4,6 +4,7 @@ import './index.css';
 import Home from './pages/Home' // 引入時後檔名為 index 時不需寫出來
 
 
+
 ReactDOM.render(
   <React.StrictMode>
     <Home/>

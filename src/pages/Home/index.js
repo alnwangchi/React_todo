@@ -43,12 +43,12 @@ const Home = () => {
   // })
   // 不明白這邊為何會執行 4 次然後 which 跟 keyCode 被棄用
 
-
+ 
 
 
 
   return <div className="app">
-    <Form addData={setData} name="Allen" submitState={submitState}/>
+    <Form addData={setData} name="Allen" submitState={submitState} />
     <List data={data} deleteData={setData} submitState={submitState}/>
   </div>
 };
