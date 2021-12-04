@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { v4 } from "uuid"; // 產生唯一值的 lib
 
-const Form = ({addData}) => {
+const Form = ({addData, submitState}) => {
 
   const [note, setNote] = useState("");
   const noteTyping = (e) => {
@@ -24,6 +24,7 @@ const Form = ({addData}) => {
   // };
 
   const addItem = () => {
+    submitState.current = true;
     addData((prevData)=> {
       return [{
         id: v4(),

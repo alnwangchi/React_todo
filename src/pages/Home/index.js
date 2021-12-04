@@ -7,8 +7,7 @@ import "./index.css";
 
 const Home = () => {
   const [data, setData] = useState([]); // state 改變 react 就會重新選渲染，底下兩個元件共用此狀態
-  const submitState = useRef(false)
-  // const submitState2 = false
+  const submitState = useRef(false) // 一個標準值 不會影響渲染
 
   async function fetchData(setData) { // 包裝 fetch 回來的 Promise 物件
     const res = await fetch(API_GET_DATA) // await 就是等這步完成
@@ -16,7 +15,7 @@ const Home = () => {
     setData(data)
   }
 
-  async function addData(data) {
+  async function fetchAddData(data) {
     await fetch(API_GET_DATA, {
       method: "PUT",
       headers: {
@@ -27,21 +26,30 @@ const Home = () => {
   }
 
   useEffect(() => {
-    if(!submitState.current){
-      return
-    }
-    addData(data)
+    if(!submitState.current) return
+
+    fetchAddData(data)
+      .then(() => {
+        submitState.current = false
+      })
   }, [data]) // 當我在 form 中 click 新增時資料發生變動就會執行
   
   useEffect(() => { // reload都會先執行一次
     fetchData(setData);
   }, []) // 這邊如果綁 data 的話會無限執行
 
+  // window.addEventListener('keydown',function(e) {
+  //   console.log(e.which);
+  // })
+  // 不明白這邊為何會執行 4 次然後 which 跟 keyCode 被棄用
+
+
+
 
 
   return <div className="app">
-    <Form addData={setData} name="Allen" />
-    <List data={data} deleteData={setData}/>
+    <Form addData={setData} name="Allen" submitState={submitState}/>
+    <List data={data} deleteData={setData} submitState={submitState}/>
   </div>
 };
 

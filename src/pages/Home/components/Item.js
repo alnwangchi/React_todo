@@ -1,13 +1,11 @@
-const Item = ({id, note, date, time, deleteData}) => {
+const Item = ({id, note, date, time, deleteData, submitState}) => {
 
   const deleteItem = () => {
+    submitState.current = true;
     deleteData((prevData) => {
-      const aa = prevData.filter((item)=> {
-        console.log(item.id, id);
+      return prevData.filter((item)=> {
         return item.id !== id
       })
-      console.log(aa);
-      return aa
     })
   }
   return <div className="item">
