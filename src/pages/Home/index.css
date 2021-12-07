@@ -54,18 +54,39 @@ input {
 
 .input_time {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   margin-top: 16px;
 }
+label {
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
 
 .input_time input {
-  width: 50%;
-  max-width: 160px;
+  /* max-width: 160px; */
+  margin-left: 12px;
 }
-.input_time input:nth-of-type(1) {
+/* .input_time input:nth-of-type(1) {
   margin-right: 32px;
-}
-.input_time span {
+} */
+/* .input_time span {
   margin-right: 8px;
+} */
+
+.now_btn {
+  align-self: flex-end;
+  background-color: rgb(94, 189, 226);
+  border-radius: 8px;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: .25s;
+  color: #fff;
+}
+.now_btn:hover {
+  background-color: hsl(197, 69%, 53%);
 }
