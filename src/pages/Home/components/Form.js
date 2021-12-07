@@ -15,8 +15,9 @@ const Form = ({addData, submitState}) => {
   const [time, setTime] = useState("");
   const timeTyping = (e) => {
     setTime(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
+
   // console.log(note, date, time);
   // const [formData, setFormData] = useState({ note: "", time: "", date: "" });
   // const onChangeForm = (type, e) => {
@@ -37,6 +38,10 @@ const Form = ({addData, submitState}) => {
         ...prevData
       ]
     });
+    // 清空值
+    setNote('')
+    setDate('')
+    setTime('')
   };
 
   const enterAdd = (e) => {
