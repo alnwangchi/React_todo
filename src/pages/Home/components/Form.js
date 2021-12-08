@@ -65,7 +65,7 @@ const Form = ({addData, submitState}) => {
       <p>事項:</p>
       <input type="text" value={note} onChange={noteTyping} onKeyDown={enterAdd}/>
       <div className="input_time">
-        <label>日期
+        <label>日期:
           <input type="date" value={date} onChange={dateTyping} />
         </label>
         <label>時間:
