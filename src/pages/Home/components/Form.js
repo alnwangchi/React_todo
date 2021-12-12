@@ -57,8 +57,6 @@ const Form = ({addData, submitState}) => {
     setTime(nowTime)
   }
   
-
-
   return (
     <div>
       <h1>Allen TODO</h1>
@@ -75,11 +73,12 @@ const Form = ({addData, submitState}) => {
       </div>
 
 
-      <button className="add" onClick={addItem} onKeyPress={() => console.log("Hi")}>
+      <button className="add" onClick={addItem}>
         新增
       </button>
     </div>
   );
 };
+
 
 export default Form;
